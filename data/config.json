@@ -1,0 +1,9 @@
+{
+    "auth": {
+        "uploadKey": "epic-upload-key"
+    },
+    "discord": {
+        "botToken": "",
+        "channelId": ""
+    }
+}
