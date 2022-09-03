@@ -15,20 +15,9 @@ config = json.load(open("data/config.json"))
 def upload():
     upload_key = config["auth"]["uploadKey"]
     
-    if not upload_key:
-        return flask.jsonify({
-            "error": "Upload key not set"
-        })
-
-    if flask.request.headers.get("upload-key") != upload_key or not flask.request.headers.get("upload-key"):
-        return flask.jsonify({
-            "error": "Invalid upload key"
-        })
-
-    if not flask.request.files:
-        return flask.jsonify({
-            "error": "No file provided"
-        })
+    if not upload_key: return flask.jsonify({"error": "Upload key not set"})
+    if flask.request.headers.get("upload-key") != upload_key or not flask.request.headers.get("upload-key"): return flask.jsonify({"error": "Invalid upload key"})
+    if not flask.request.files: return flask.jsonify({"error": "No file provided"})
 
     file = flask.request.files["file"]
 
